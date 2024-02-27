@@ -34,4 +34,14 @@ export default async function Details (props: detailsProps) {
         <code>{detailedSnippet.code}</code>
     </pre>
         </>
-)}   
+)}
+
+export async function generateStaticParams() {
+    // get all snippets
+    const snippets = await db.snippet.findMany()
+    return snippets.map((snippet) => {
+        return {
+            id: snippet.id.toString()
+        }
+    })
+}

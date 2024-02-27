@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { db } from "@/db";
 import { redirect } from "next/navigation";
 
+// edit a snippet
 export async function snippetEdit(id: number, code: string) {
   await db.snippet.update({
     where: { id },
@@ -11,6 +12,7 @@ export async function snippetEdit(id: number, code: string) {
       code,
     },
   });
+  revalidatePath(`/snippets/${id}`)
   redirect(`/snippets/${id}`);
 }
 
