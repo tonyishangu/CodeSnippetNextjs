@@ -2,7 +2,7 @@ import { db } from "@/db";
 import Link from "next/link";
 
 // make it a dynamic route
-export const dynamic = 'force-dynamic'
+// export const dynamic = 'force-dynamic'
 
 // make the component async
 export default async function Home() {
